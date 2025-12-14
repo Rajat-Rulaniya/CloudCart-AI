@@ -1,0 +1,161 @@
+{
+  "regions": {
+    "us-east-1": {
+      "name": "US East (N. Virginia)",
+      "multiplier": 1.0
+    },
+    "us-west-2": {
+      "name": "US West (Oregon)",
+      "multiplier": 1.02
+    },
+    "eu-west-1": {
+      "name": "EU (Ireland)",
+      "multiplier": 1.08
+    },
+    "ap-south-1": {
+      "name": "Asia Pacific (Mumbai)",
+      "multiplier": 0.95
+    },
+    "ap-southeast-1": {
+      "name": "Asia Pacific (Singapore)",
+      "multiplier": 1.10
+    }
+  },
+  "ec2": {
+    "instanceTypes": {
+      "t3.micro": {
+        "vcpu": 2,
+        "memory": 1,
+        "hourlyRate": 0.0104
+      },
+      "t3.small": {
+        "vcpu": 2,
+        "memory": 2,
+        "hourlyRate": 0.0208
+      },
+      "t3.medium": {
+        "vcpu": 2,
+        "memory": 4,
+        "hourlyRate": 0.0416
+      },
+      "t3.large": {
+        "vcpu": 2,
+        "memory": 8,
+        "hourlyRate": 0.0832
+      },
+      "m5.large": {
+        "vcpu": 2,
+        "memory": 8,
+        "hourlyRate": 0.096
+      },
+      "m5.xlarge": {
+        "vcpu": 4,
+        "memory": 16,
+        "hourlyRate": 0.192
+      },
+      "r5.large": {
+        "vcpu": 2,
+        "memory": 16,
+        "hourlyRate": 0.126
+      }
+    },
+    "osMultiplier": {
+      "linux": 1.0,
+      "windows": 1.8
+    },
+    "spotDiscount": 0.3
+  },
+  "s3": {
+    "storageClasses": {
+      "standard": {
+        "perGBMonth": 0.023,
+        "putRequest": 0.000005,
+        "getRequest": 0.0000004
+      },
+      "infrequent": {
+        "perGBMonth": 0.0125,
+        "putRequest": 0.00001,
+        "getRequest": 0.000001
+      },
+      "glacier": {
+        "perGBMonth": 0.004,
+        "putRequest": 0.00003,
+        "getRequest": 0.0000004
+      }
+    }
+  },
+  "rds": {
+    "engines": {
+      "postgres": {
+        "name": "PostgreSQL"
+      },
+      "mysql": {
+        "name": "MySQL"
+      }
+    },
+    "instanceTypes": {
+      "db.t3.micro": {
+        "vcpu": 2,
+        "memory": 1,
+        "hourlyRate": 0.017
+      },
+      "db.t3.small": {
+        "vcpu": 2,
+        "memory": 2,
+        "hourlyRate": 0.034
+      },
+      "db.t3.medium": {
+        "vcpu": 2,
+        "memory": 4,
+        "hourlyRate": 0.068
+      },
+      "db.r5.large": {
+        "vcpu": 2,
+        "memory": 16,
+        "hourlyRate": 0.24
+      },
+      "db.r5.xlarge": {
+        "vcpu": 4,
+        "memory": 32,
+        "hourlyRate": 0.48
+      }
+    },
+    "storagePerGB": 0.115,
+    "multiAZMultiplier": 2.0,
+    "backupPerGB": 0.095
+  },
+  "dataTransfer": {
+    "ingressPerGB": 0,
+    "egressTiers": [
+      {
+        "upToGB": 1,
+        "perGB": 0
+      },
+      {
+        "upToGB": 10000,
+        "perGB": 0.09
+      },
+      {
+        "upToGB": 40000,
+        "perGB": 0.085
+      },
+      {
+        "upToGB": 100000,
+        "perGB": 0.07
+      },
+      {
+        "upToGB": null,
+        "perGB": 0.05
+      }
+    ],
+    "crossRegionPerGB": 0.02,
+    "natGatewayPerGB": 0.045,
+    "natGatewayHourly": 0.045
+  },
+  "productionOverhead": {
+    "backupCostPercentage": 0.15,
+    "monitoringCostPercentage": 0.08,
+    "loggingCostPercentage": 0.05,
+    "redundancyMultiplier": 1.3
+  }
+}
